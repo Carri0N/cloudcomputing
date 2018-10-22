@@ -1,0 +1,11 @@
+
+<div id="loginContainer" class="container">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="form-group">
+
+      <label id="lbl" for="name">Username</label>
+      <input autocomplete='off' type="text" class="form-control" id='name' required [(ngModel)]="username" name="username" #name="ngModel">
+    </div>
+    <button id="btn" type="submit" class="btn btn-success">{{buttonName}}</button>
+  </form>
+</div>

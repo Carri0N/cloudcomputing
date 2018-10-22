@@ -1,0 +1,167 @@
+.clear {
+  clear: both;
+}
+
+#component {
+  width: 99%; /* dont ask just take it ..... */
+}
+
+/* Header Styling */
+
+#info {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+#title {
+  float: left;
+}
+
+#userinfo {
+  color: grey;
+  border: solid;
+  border-width: 2px;
+  padding: 10px;
+  float: right;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#userinfo:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2{
+  margin: 0;
+  font-size: 20px;
+  padding-right: 10px;
+  display: table-cell;
+}
+
+h3{
+  padding-left: 10px;
+  border-left: solid;
+  border-color: grey;
+  border-width: 2px;
+  margin: 0;
+  font-size: 19px;
+  display: table-cell;
+}
+
+/* Form Styling */
+
+form {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px 3px 3px 3px;
+  width: 100%;
+}
+
+form input {
+  display: table-cell;
+  padding: 10px;
+  width: 80%;
+  margin-right: .5%;
+}
+
+form button {
+  display: table-cell;
+  width: 9%;
+  border: none;
+  padding: 10px;
+}
+
+/* Chat Message Styling */
+
+
+#timestamp{
+  font-size: 19px;
+  border: solid;
+  border-radius: 2px;
+  border-width: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: grey;
+}
+
+#user {
+  font-size: 21px;
+  font-size: 19px;
+  border: solid;
+  border-radius: 2px;
+  border-width: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: grey;
+}
+
+#msg {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: black;
+  list-style-type: none; margin: 0; padding: 0;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  border-bottom: solid;
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  border-top: solid;
+  border-top-width: 2px;
+
+  height: 450px;
+  overflow:auto;
+  overflow-y:scroll;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 0px;
+}
+
+#msg li {
+  border: solid;
+  border-color: lightblue;
+  /*border-right: solid;
+  border-bottom: solid;
+  border-color: lightgrey;*/
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 5px 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#msg li:nth-last-child(odd) {
+  background-color: lightblue;
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+  width: 15px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0);
+ 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(78, 156, 182, 0.2);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+ 
+  border:solid;
+  border-width: 2px;
+  border-color: lightblue;
+} 
