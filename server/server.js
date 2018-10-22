@@ -5,7 +5,7 @@ const server = http.Server(app);
 const socketIO = require('socket.io');
 const io = socketIO(server);
 const port = process.env.PORT || 3000;
-const moment = require('moment');
+var moment = require('moment');
 
 var userlist = [];
 
