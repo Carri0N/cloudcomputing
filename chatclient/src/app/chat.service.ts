@@ -17,6 +17,14 @@ export class ChatService {
     this.socket.emit('message', {chat: chatroom, msg: message});
   }
 
+  public getList() {
+    this.socket.emit('list');
+  }
+
+  public whisper(user1, message1) {
+    this.socket.emit('whisper', {user: user1, msg:message1});
+  }
+
   public sendFile(chatroom, message) {
 
   }
@@ -27,8 +35,5 @@ export class ChatService {
         observer.next(message);
       });
     });
-  }
-
-  public getList() {
   }
 }

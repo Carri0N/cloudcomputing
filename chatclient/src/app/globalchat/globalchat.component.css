@@ -56,25 +56,30 @@ h3{
 
 /* Form Styling */
 
-form {
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 10px 3px 3px 3px;
+#userInputContainer {
   width: 100%;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
-form input {
-  display: table-cell;
-  padding: 10px;
-  width: 80%;
-  margin-right: .5%;
+#fileButton {
+  float: left;
+  width: 2.5%;
+}
+
+form {
+  float: left;
+  width: 75%;
 }
 
 form button {
-  display: table-cell;
-  width: 9%;
-  border: none;
-  padding: 10px;
+  float: left;
+  width: 10%;
+}
+
+form input{
+  float: left;
+  width: 90%;
 }
 
 /* Chat Message Styling */

@@ -15,10 +15,12 @@
         </li>
       </ul>
   </div>
-  <div>
-    <form (ngSubmit)="onSubmit()" #chatform="ngForm">
-    <input required [(ngModel)]="input" name="name" class="form-control" id="input" autocomplete="off" placeholder="Enter Message" >
-    <button class="btn btn-primary" type="submit">Send</button>
+  <div id="userInputContainer">
+    <form (ngSubmit)="onSubmit()" #chatform="ngForm" id="form">
+      <input required [(ngModel)]="input" name="name" class="form-control" id="input" autocomplete="off" placeholder="Enter Message" >
+      <button class="btn btn-primary" type="submit">Send</button>
    </form>
+   <input type="image" id="fileButton" title="Choose File" src="assets/image/dataicon.png" />
+   
   </div>
 </div>

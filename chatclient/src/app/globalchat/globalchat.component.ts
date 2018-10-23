@@ -12,7 +12,7 @@ export class GlobalchatComponent implements OnInit {
 
   username: string = localStorage.getItem('username');
   input:string; //bind to input field
-  messages = [{timestamp: this.getTime(), user: "Server", msg:"Welcome "+this.username+"!"}]; //bind to message list
+  messages = []; //bind to message list
   chatservice: ChatService;
   chat: string= 'global';
 
@@ -32,11 +32,23 @@ export class GlobalchatComponent implements OnInit {
   }
 
   onSubmit() {
-      
-    if(this.input == "/list")
-    {
-
-    } else {
+    if(this.input == "\\list"){
+      this.chatservice.getList();
+    } else if(this.input == "\\help") {
+      this.messages.unshift({timestamp: "HELP", user: "Command", msg: "\\help => lists commands"});
+      this.messages.unshift({timestamp: "HELP", user: "Command", msg: "\\list => lists all users"});
+      this.messages.unshift({timestamp: "HELP", user: "Command", msg: "\\whisper <Username> <Message> => sends message to one user only"});
+    } else if(this.input.split(' ')[0] == "\\whisper") {
+      var data = this.input.split(' ');
+      if(data.length >= 3) {
+        var user = data[1];
+        var msg = "";
+        for (let index = 2; index < data.length; index++) {
+          msg += data[index] + " "; 
+        }
+        this.chatservice.whisper(user, msg);
+      }
+    }else {
       this.chatservice.sendMessage(this.chat, this.input);
     }
     this.input = "";
