@@ -16,11 +16,14 @@
       </ul>
   </div>
   <div id="userInputContainer">
-    <form (ngSubmit)="onSubmit()" #chatform="ngForm" id="form">
+    <form (ngSubmit)="onSubmit()" id="form">
       <input required [(ngModel)]="input" name="name" class="form-control" id="input" autocomplete="off" placeholder="Enter Message" >
       <button class="btn btn-primary" type="submit">Send</button>
+      
+      <input type="file" accept="media_type" name="file" id="file" (change)="onChange($event)"/>
+      <label for="file" id="fileButton"><input id="fileImage" type="image" src="/assets/image/dataicon.png"></label>
+      <h6>{{filename}}</h6>
    </form>
-   <input type="image" id="fileButton" title="Choose File" src="assets/image/dataicon.png" />
-   
   </div>
+  <app-chat-form></app-chat-form>
 </div>

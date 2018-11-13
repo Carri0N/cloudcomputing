@@ -6,5 +6,9 @@
   border-color: #D3D3D3;
   border-width: 1px;
   padding: 20px;
-  
+}
+
+h1 {
+  color: red;
+  font-size: 14px;
 }

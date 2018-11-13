@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class GlobalchatComponent implements OnInit {
 
+  filename: string = "";
   username: string = localStorage.getItem('username');
   input:string; //bind to input field
   messages = []; //bind to message list
@@ -18,12 +19,15 @@ export class GlobalchatComponent implements OnInit {
 
   constructor(private router: Router) {
     this.chatservice = new ChatService();
-    
   }
 
+  /**
+   * checks valid session and joins user to global chat
+   * subscribes to chat service to get updates on messages
+   */
   ngOnInit() {
-    if(this.username == null) {
-      this.router.navigate([''])
+    if(this.username == null || this.username == undefined) {
+      this.backToLogin();
     }
     this.chatservice.join({user: this.username, chat:this.chat});
     this.chatservice.getMessages().subscribe((message) => {
@@ -31,6 +35,10 @@ export class GlobalchatComponent implements OnInit {
     })
   }
 
+  /**
+   * handles user input.
+   * calls the right function if input is a command, else emit message
+   */
   onSubmit() {
     if(this.input == "\\list"){
       this.chatservice.getList();
@@ -49,15 +57,24 @@ export class GlobalchatComponent implements OnInit {
         this.chatservice.whisper(user, msg);
       }
     }else {
+      if(this.filename != "") {
+
+      }
       this.chatservice.sendMessage(this.chat, this.input);
     }
     this.input = "";
   }
 
-  getTime() {
-    return moment().format('hh:mm A') + "";
+  /**
+   * Handles file inputs TODO
+   */
+  onChange(event) {
+    this.filename = event.target.value.split('\\')[event.target.value.split('\\').length - 1];
   }
 
+  /**
+   * routes user to login
+   */
   backToLogin() {
     this.router.navigate(['']);
   }

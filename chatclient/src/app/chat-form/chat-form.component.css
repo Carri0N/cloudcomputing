@@ -1,0 +1,36 @@
+*{
+    margin-left: 4px;
+}
+
+input{
+    width: 85%;
+    float: left;
+}
+
+button{
+    width: 5%;
+    float: left;
+}
+
+label{
+    width: 5%;
+    float: left;
+}
+
+#container{
+    width: 100%;
+}
+
+#file{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#fileButton{
+    pointer-events: none;
+    width: 100%;
+}

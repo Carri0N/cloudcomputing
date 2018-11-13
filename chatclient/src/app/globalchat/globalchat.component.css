@@ -63,13 +63,32 @@ h3{
 }
 
 #fileButton {
-  float: left;
-  width: 2.5%;
+  float:left;
+  width: 3.25%;
+  cursor: pointer;
+}
+
+#fileImage{
+  pointer-events: none;
+}
+
+h6{
+  float:left;
+  width: 5%;
+}
+
+#file {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 
 form {
   float: left;
-  width: 75%;
+  width: 100%;
 }
 
 form button {
@@ -79,7 +98,7 @@ form button {
 
 form input{
   float: left;
-  width: 90%;
+  width: 80%;
 }
 
 /* Chat Message Styling */

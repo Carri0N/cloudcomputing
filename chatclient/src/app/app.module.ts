@@ -7,12 +7,18 @@ import { ChatService } from './chat.service';
 import { LoginComponent } from './login/login.component';
 import { GlobalchatComponent } from './globalchat/globalchat.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { ChatDisplayComponent } from './chat-display/chat-display.component';
+import { ChatFormComponent } from './chat-form/chat-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    GlobalchatComponent
+    GlobalchatComponent,
+    LoginFormComponent,
+    ChatDisplayComponent,
+    ChatFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+title Chat Server SocketIO
+
+Client->Server SocketIO:Connection/Join
+Client<--Server SocketIO:Welcome Message
+OtherUser->Server SocketIO:Connection/Join
+OtherUser<--Server SocketIO:Welcome Message
+Client<--Server SocketIO:Login Notification
+
+
+Client->Server SocketIO:Chat Message
+
+OtherUser<--Server SocketIO:Display Update
+Client<--Server SocketIO:Display Update
+
+OtherUser->Server SocketIO:Chat Message
+
+OtherUser<--Server SocketIO:Display Update
+Client<--Server SocketIO:Display Update
+
+Client->Server SocketIO:Private Message
+OtherUser<--Server SocketIO:Private Update
+Server SocketIO-->Client:Private Update
+
+Client->Server SocketIO:\list
+Client<--Server SocketIO:\list Result
+
+Client->Server SocketIO:Logout
+OtherUser<--Server SocketIO:Logout Notification

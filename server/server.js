@@ -7,12 +7,27 @@ const io = socketIO(server);
 const port = process.env.PORT || 3000;
 const moment = require('moment');
 
-io.on('connection', (socket) => {
+io.on('connection', (socket, name) => {
 
+  socket.nickname = name;
+  /**
+   * emits message to all connected socket that you left
+   */
   socket.on('disconnect', function(){
+    socket.broadcast.emit('message', {timestamp: 'Server', user: 'Info', msg: socket.nickname + ' left!'})
     console.log(socket.nickname + ' disconnected');
   })
 
+  /**
+   * same as disconnect
+   */
+  socket.on('leave', function(){
+    socket.broadcast.emit('message', {timestamp: 'Server', user: 'Info', msg: socket.nickname + ' left!'})
+  })
+
+  /**
+   * joins user to chatroom, emits info message to all users in that chat
+   */
   socket.on('join', function(info) {
     socket.join(info.chat);
     socket.nickname = info.user;
@@ -21,11 +36,17 @@ io.on('connection', (socket) => {
     console.log(info.user + ' joined room: ' + info.chat + '!');
   })
 
+  /**
+   * removes user in chatroom (not used)
+   */
   socket.on('leave', function(chat) {
-    console.log(socket.nickname + ' left room: ' + info.chat + '!');
+    console.log(socket.nickname + ' left!');
     socket.leave(chat);
   })
 
+  /**
+   * emits message to all users in same chat room
+   */
   socket.on('message', function(info) {
     io.in(info.chat).emit('message', {timestamp: moment().format('hh:mm A') ,user: socket.nickname, msg: info.msg});
   })
@@ -42,10 +63,16 @@ io.on('connection', (socket) => {
     })
   })
 
+  /**
+   * todo
+   */
   socket.on('file', function() {
     console.log("file");
   })
 
+  /**
+   * emits list of all connected users to requester
+   */
   socket.on('list', function() {
     console.log(socket.nickname + ': list request');
     var users = "";
@@ -62,9 +89,13 @@ server.listen(port, () => {
   console.log(`started on port: ${port}`);
 });
 
+/**
+ * returns all connected sockets
+ * @param {} roomId (optional)
+ * @param {*} namespace (optional)
+ */
 function findClientsSocket(roomId, namespace) {
   var res = []
-  // the default namespace is "/"
   , ns = io.of(namespace ||"/");
 
   if (ns) {
